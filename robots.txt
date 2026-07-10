@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jose-r-m.github.io/portfolio/sitemap.xml

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jose Rodríguez Melero | Ingeniero de hardware y diseño de PCB</title>
+    
+    <!-- Meta tags SEO -->
+    <meta name="description" content="Portfolio profesional de Jose Rodríguez Melero, ingeniero en electrónica especializado en diseño de PCB, sistemas embebidos, CAN Bus y microelectrónica.">
+    <meta name="keywords" content="Ingeniero de hardware, PCB, Sistemas embebidos, CAN Bus, Microelectronica, Jose Rodriguez Melero, Altium, Proteus, Barcelona, España">
+    <link rel="canonical" href="https://jose-r-m.github.io/portfolio/">
+    <link rel="shortcut icon" href="assets/logo.png" type="image/png">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Jose Rodríguez Melero | Ingeniero de hardware y diseño de PCB">
+    <meta property="og:description" content="Portfolio profesional de Jose Rodríguez Melero, ingeniero en electrónica especializado en diseño de PCB, sistemas embebidos, CAN Bus y microelectrónica.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jose-r-m.github.io/portfolio/">
+    <meta property="og:image" content="https://jose-r-m.github.io/portfolio/assets/og_image.png">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jose Rodríguez Melero | Ingeniero de hardware y diseño de PCB">
+    <meta name="twitter:description" content="Portfolio profesional de Jose Rodríguez Melero, especializado en diseño de PCB y sistemas embebidos.">
+    <meta name="twitter:image" content="https://jose-r-m.github.io/portfolio/assets/og_image.png">
+
+    <!-- Schema.org Person metadata -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Jose Rodríguez Melero",
+      "jobTitle": "Ingeniero de hardware",
+      "description": "Ingeniero de hardware especializado en diseño de PCB, sistemas embebidos, CAN Bus y microelectrónica.",
+      "url": "https://jose-r-m.github.io/portfolio/",
+      "image": "https://jose-r-m.github.io/portfolio/assets/og_image.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Barcelona",
+        "addressCountry": "ES"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/jose-rodriguez-melero-94b6b1257/",
+        "https://github.com/jose-r-m"
+      ]
+    }
+    </script>
+    
+    <!-- FontAwesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Estilos -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- SVG Circuit Lines (Fondo Decorativo en Laterales) -->
+    <div class="decor-circuit decor-left">
+        <svg width="80" height="2000" viewBox="0 0 80 2000" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 0 V300 L30 320 V700 L15 715 V1100 L30 1115 V1600 L10 1620 V2000" stroke="rgba(212,175,55,0.08)" stroke-width="2"/>
+            <path d="M40 0 V450 L20 470 V850 L35 865 V1300 L15 1315 V1750 L35 1765 V2000" stroke="rgba(212,175,55,0.05)" stroke-width="1.5"/>
+        </svg>
+    </div>
+    <div class="decor-circuit decor-right">
+        <svg width="80" height="2000" viewBox="0 0 80 2000" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M70 0 V300 L50 320 V700 L65 715 V1100 L50 1115 V1600 L70 1620 V2000" stroke="rgba(212,175,55,0.08)" stroke-width="2"/>
+            <path d="M40 0 V450 L60 470 V850 L45 865 V1300 L65 1315 V1750 L45 1765 V2000" stroke="rgba(212,175,55,0.05)" stroke-width="1.5"/>
+        </svg>
+    </div>
+
+    <!-- Header & Nav -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo" aria-label="Volver arriba">
+                <!-- Logotipo JRM oficial cargado desde imagen assets/logo.png -->
+                <img src="assets/logo.png" alt="Logotipo JRM" class="logo-img">
+            </a>
+            <nav class="nav-menu-container" aria-label="Navegación principal">
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#hero" class="nav-link active" data-translate="nav-inicio">Inicio</a></li>
+                    <li><a href="#about" class="nav-link" data-translate="nav-about">Sobre mí</a></li>
+                    <li><a href="#projects" class="nav-link" data-translate="nav-projects">Proyectos</a></li>
+                    <li><a href="#experience" class="nav-link" data-translate="nav-experience">Trayectoria</a></li>
+                    <li><a href="#pcb-tool" class="nav-link" data-translate="nav-pcb">Calculadora PCB</a></li>
+                    <li><a href="#skills" class="nav-link" data-translate="nav-skills">Habilidades</a></li>
+                    <li id="nav-blog-li" style="display: none;"><a href="#blog" class="nav-link" data-translate="nav-blog">Bitácora</a></li>
+                    <li><a href="#contact" class="nav-link" data-translate="nav-contact">Contacto</a></li>
+                    <!-- Selector de Idioma Dinámico Dropdown -->
+                    <li style="margin-left: 12px;" class="lang-dropdown-li">
+                        <div class="lang-dropdown" id="lang-dropdown-wrapper">
+                            <button class="lang-dropdown-trigger" id="lang-dropdown-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Seleccionar idioma / Select language" aria-controls="lang-dropdown-menu">
+                                <i class="fa-solid fa-globe"></i> <span id="current-lang-text">ES</span> <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem; margin-left: 4px;"></i>
+                            </button>
+                            <ul class="lang-dropdown-menu" id="lang-dropdown-menu" role="listbox" aria-label="Idiomas disponibles">
+                                <li role="option" id="opt-es" class="lang-dropdown-item active" data-lang="es" tabindex="0" aria-selected="true">Español</li>
+                                <li role="option" id="opt-ca" class="lang-dropdown-item" data-lang="ca" tabindex="0" aria-selected="false">Català</li>
+                                <li role="option" id="opt-en" class="lang-dropdown-item" data-lang="en" tabindex="0" aria-selected="false">English</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" aria-label="Presentación">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="badge" data-translate="hero-badge">Hardware · Diseño de PCB · Sistemas embebidos</div>
+                <h1 class="hero-title">Jose Rodríguez<br>Melero</h1>
+                
+                <!-- Línea de circuito dorado con pad (estilo tarjeta de visita) -->
+                <div class="hero-circuit-line"></div>
+                
+                <!-- Subtítulos de ingeniería (estilo tarjeta de visita) -->
+                <div class="hero-subtitles">
+                    <h3 data-translate="hero-sub1">Ingeniero en Electrónica Industrial y Automática</h3>
+                    <h3 data-translate="hero-sub2">Especializado en diseño de PCB, sistemas embebidos y microelectrónica</h3>
+                </div>
+                
+                <p class="hero-desc" data-translate="hero-desc">Ingeniero de hardware especializado en diseño de PCB, sistemas embebidos, comunicaciones CAN y microelectrónica. Mi experiencia combina desarrollo electrónico, sistemas de almacenamiento de energía y coordinación técnica de equipos de ingeniería.</p>
+                <div class="btn-group">
+                    <a href="#projects" class="btn btn-primary" data-translate="hero-btn-projects"><i class="fa-solid fa-layer-group"></i> Ver proyectos</a>
+                    <a href="assets/Jose_Rodriguez_Melero_CV.pdf" download id="link-cv" class="btn btn-secondary" data-translate="hero-btn-cv"><i class="fa-solid fa-file-pdf"></i> Descargar CV</a>
+                    <a href="assets/Jose_Rodriguez_Melero.vcf" download class="btn btn-secondary" data-translate="hero-btn-vcard"><i class="fa-solid fa-address-card"></i> Guardar contacto</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/jose-rodriguez-melero-94b6b1257/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://github.com/jose-r-m" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="mailto:jrmelero@proton.me" class="social-btn" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="pcb-visualizer">
+                    <div class="pcb-chip" style="background: none; border: none; box-shadow: none; padding: 0; width: 160px; height: 160px; display: flex; align-items: center; justify-content: center; position: relative;">
+                        <!-- SVG de Microchip QFP de alta densidad (40 pines) con pistas de cobre ruteadas -->
+                        <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute; z-index: 1;">
+                            <!-- Cuerpo del Chip Silicio -->
+                            <rect x="40" y="40" width="80" height="80" rx="10" fill="#121212" stroke="#d4af37" stroke-width="4" style="filter: drop-shadow(0px 0px 10px rgba(212,175,55,0.45));"/>
+                            
+                            <!-- Indicador de Pin 1 (Punto de orientación) -->
+                            <circle cx="50" cy="50" r="3.5" fill="#d4af37"/>
+                            
+                            <!-- 10 Pines Superiores -->
+                            <rect x="46" y="24" width="3" height="16" rx="0.5" fill="#d4af37"/>
+                            <rect x="53" y="24" width="3" height="16" rx="0.5" fill="#d4af37"/>
+                            <rect x="60" y="24" width="3" height="16" rx="0.5" fill="#d4af37"/>
+                            <rect x="67" y="24" width="3" height="16" rx="0.5" fill="#d4af37"/>
+                            <rect x="74" y="24" width="3" height="16" rx="0.5" fill="#d4af37"/>
+                            <rect x="83" y="24" width="3" height="16" rx="0.5" fill="#d4af37"/>
+                            <rect x="90" y="24" width="3" height="16" rx="0.5" fill="#d4af37"/>
+                            <rect x="97" y="24" width="3" height="16" rx="0.5" fill="#d4af37"/>
+                            <rect x="104" y="24" width="3" height="16" rx="0.5" fill="#d4af37"/>
+                            <rect x="111" y="24" width="3" height="16" rx="0.5" fill="#d4af37"/>
+                            
+                            <!-- 10 Pines Inferiores -->
+                            <rect x="46" y="120" width="3" height="16" rx="0.5" fill="#d4af37"/>
+                            <rect x="53" y="120" width="3" height="16" rx="0.5" fill="#d4af37"/>
+                            <rect x="60" y="120" width="3" height="16" rx="0.5" fill="#d4af37"/>
+                            <rect x="67" y="120" width="3" height="16" rx="0.5" fill="#d4af37"/>
+                            <rect x="74" y="120" width="3" height="16" rx="0.5" fill="#d4af37"/>
+                            <rect x="83" y="120" width="3" height="16" rx="0.5" fill="#d4af37"/>
+                            <rect x="90" y="120" width="3" height="16" rx="0.5" fill="#d4af37"/>
+                            <rect x="97" y="120" width="3" height="16" rx="0.5" fill="#d4af37"/>
+                            <rect x="104" y="120" width="3" height="16" rx="0.5" fill="#d4af37"/>
+                            <rect x="111" y="120" width="3" height="16" rx="0.5" fill="#d4af37"/>
+                            
+                            <!-- 10 Pines Izquierdos -->
+                            <rect x="24" y="46" width="16" height="3" rx="0.5" fill="#d4af37"/>
+                            <rect x="24" y="53" width="16" height="3" rx="0.5" fill="#d4af37"/>
+                            <rect x="24" y="60" width="16" height="3" rx="0.5" fill="#d4af37"/>
+                            <rect x="24" y="67" width="16" height="3" rx="0.5" fill="#d4af37"/>
+                            <rect x="24" y="74" width="16" height="3" rx="0.5" fill="#d4af37"/>
+                            <rect x="24" y="83" width="16" height="3" rx="0.5" fill="#d4af37"/>
+                            <rect x="24" y="90" width="16" height="3" rx="0.5" fill="#d4af37"/>
+                            <rect x="24" y="97" width="16" height="3" rx="0.5" fill="#d4af37"/>
+                            <rect x="24" y="104" width="16" height="3" rx="0.5" fill="#d4af37"/>
+                            <rect x="24" y="111" width="16" height="3" rx="0.5" fill="#d4af37"/>
+                            
+                            <!-- 10 Pines Derechos -->
+                            <rect x="120" y="46" width="16" height="3" rx="0.5" fill="#d4af37"/>
+                            <rect x="120" y="53" width="16" height="3" rx="0.5" fill="#d4af37"/>
+                            <rect x="120" y="60" width="16" height="3" rx="0.5" fill="#d4af37"/>
+                            <rect x="120" y="67" width="16" height="3" rx="0.5" fill="#d4af37"/>
+                            <rect x="120" y="74" width="16" height="3" rx="0.5" fill="#d4af37"/>
+                            <rect x="120" y="83" width="16" height="3" rx="0.5" fill="#d4af37"/>
+                            <rect x="120" y="90" width="16" height="3" rx="0.5" fill="#d4af37"/>
+                            <rect x="120" y="97" width="16" height="3" rx="0.5" fill="#d4af37"/>
+                            <rect x="120" y="104" width="16" height="3" rx="0.5" fill="#d4af37"/>
+                            <rect x="120" y="111" width="16" height="3" rx="0.5" fill="#d4af37"/>
+                            
+                            <!-- Pistas de Cobre Ruteadas (Estilo Altium Designer a 45 grados) -->
+                            <path d="M47 24V14L37 4" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M60 24V18L52 10V4" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M74 24V10L64 0" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M97 24V14L107 4" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M111 24V8L119 0" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                            
+                            <path d="M47 136V146L37 156" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M60 136V142L52 150V156" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M74 136V150L64 160" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M97 136V146L107 156" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M111 136V152L119 160" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                            
+                            <path d="M24 47H14L4 37" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M24 60H18L10 52H4" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M24 74H10L0 64" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M24 97H14L4 107" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M24 111H8L0 119" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                            
+                            <path d="M136 47H146L156 37" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M136 60H142L150 52H156" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M136 74H150L160 64" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M136 97H146L156 107" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M136 111H152L160 119" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                        </svg>
+                        
+                        <!-- Logotipo JRM oficial superpuesto en el centro del chip -->
+                        <img src="assets/logo.png" alt="Logotipo JRM" style="width: 50px; height: 50px; object-fit: contain; position: absolute; z-index: 2; filter: drop-shadow(0px 0px 4px rgba(212,175,55,0.45));">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="about-title">Sobre mí</h2>
+            </div>
+            <div class="about-grid">
+                <!-- Columna izquierda: texto profesional y tarjetas de especialidad -->
+                <div class="about-content-left">
+                    <div class="about-text">
+                        <p data-translate="about-p1">Ingeniero en Electrónica Industrial y Automática, especializado en diseño de PCB, sistemas embebidos y microelectrónica. Mi experiencia combina desarrollo de hardware, comunicaciones CAN, sistemas de almacenamiento de energía y coordinación técnica de equipos multidisciplinares.</p>
+                    </div>
+                    
+                    <div class="about-features" style="margin-top: 32px;">
+                        <div class="feature-card glass-card">
+                            <div class="feature-icon"><i class="fa-solid fa-microchip"></i></div>
+                            <div>
+                                <h4 data-translate="feature-hw-title">Hardware, PCB y microelectrónica</h4>
+                                <p data-translate="feature-hw-desc">Diseño de esquemas electrónicos, layout de PCB, prototipado, sistemas embebidos y formación en procesos de fabricación microelectrónica.</p>
+                            </div>
+                        </div>
+                        <div class="feature-card glass-card" style="margin-top: 24px;">
+                            <div class="feature-icon"><i class="fa-solid fa-users-gear"></i></div>
+                            <div>
+                                <h4 data-translate="feature-mgmt-title">Dirección técnica y coordinación de equipos</h4>
+                                <p data-translate="feature-mgmt-desc">Planificación técnica, coordinación de equipos multidisciplinares, definición de roadmaps y aplicación de metodologías ágiles.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna derecha: fotografía profesional -->
+                <div class="about-content-right">
+                    <div class="profile-image-container">
+                        <img src="assets/profile.webp" alt="Retrato profesional de Jose Rodríguez Melero." class="profile-img" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="projects-title">Proyectos y casos de estudio</h2>
+            </div>
+            
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                
+                <!-- Proyecto 1 -->
+                <button class="project-card glass-card" aria-haspopup="dialog" aria-label="Ver detalles del proyecto: Diseño de PCB para sistemas de baterías LiFePO₄">
+                    <span class="project-badge" data-translate="proj1-badge">PCBs &amp; Hardware</span>
+                    <span class="project-content">
+                        <span class="project-title" data-translate="proj1-title">Diseño de PCB para sistemas de baterías LiFePO₄</span>
+                        <span class="project-desc" data-translate="proj1-desc">Diseño de circuitos electrónicos a medida para módulos de almacenamiento de energía industriales, desarrollando circuitos electrónicos asociados a módulos de baterías LiFePO₄ personalizados.</span>
+                        <span class="project-tags">
+                            <span>Altium Designer</span>
+                            <span>Proteus</span>
+                            <span>LiFePO₄</span>
+                            <span>BMS</span>
+                            <span>Prototipado</span>
+                        </span>
+                        <span class="project-more" data-translate="proj1-more">Ver caso de estudio <i class="fa-solid fa-arrow-right"></i></span>
+                    </span>
+                </button>
+                
+                <!-- Proyecto 2 -->
+                <button class="project-card glass-card" aria-haspopup="dialog" aria-label="Ver detalles del proyecto: Integración de telemetría y adquisición de datos CAN Bus">
+                    <span class="project-badge" data-translate="proj2-badge">Sistemas Embebidos</span>
+                    <span class="project-content">
+                        <span class="project-title" data-translate="proj2-title">Integración de telemetría y adquisición de datos CAN Bus</span>
+                        <span class="project-desc" data-translate="proj2-desc">Desarrollo y montaje de la red de comunicación interna del vehículo utilizando centralitas, BMS Orion e Inversores bajo protocolo CAN Bus.</span>
+                        <span class="project-tags">
+                            <span>CAN Bus</span>
+                            <span>CANoe</span>
+                            <span>Vector</span>
+                            <span>CAPL</span>
+                            <span>STM32</span>
+                            <span>Arduino</span>
+                        </span>
+                        <span class="project-more" data-translate="proj2-more">Ver caso de estudio <i class="fa-solid fa-arrow-right"></i></span>
+                    </span>
+                </button>
+                
+                <!-- Proyecto 3 -->
+                <button class="project-card glass-card" aria-haspopup="dialog" aria-label="Ver detalles del proyecto: Desarrollo y diseño de brazo robótico">
+                    <span class="project-badge" data-translate="proj3-badge">Mecánica &amp; Robótica</span>
+                    <span class="project-content">
+                        <span class="project-title" data-translate="proj3-title">Desarrollo y diseño de brazo robótico</span>
+                        <span class="project-desc" data-translate="proj3-desc">Diseño mecánico en 3D, cálculos estructurales e impresión/mecanizado de un brazo robótico de investigación.</span>
+                        <span class="project-tags">
+                            <span>SolidWorks</span>
+                            <span>Modelado 3D</span>
+                            <span>Mecanizado</span>
+                            <span>Impresión 3D</span>
+                        </span>
+                        <span class="project-more" data-translate="proj3-more">Ver caso de estudio <i class="fa-solid fa-arrow-right"></i></span>
+                    </span>
+                </button>
+                
+                <!-- Proyecto 4 -->
+                <button class="project-card glass-card" aria-haspopup="dialog" aria-label="Ver detalles del proyecto: E3Team MotoStudent Electric: desarrollo técnico y coordinación del equipo">
+                    <span class="project-badge" data-translate="proj4-badge">Gestión &amp; Equipos</span>
+                    <span class="project-content">
+                        <span class="project-title" data-translate="proj4-title">E3Team MotoStudent Electric: desarrollo técnico y coordinación del equipo</span>
+                        <span class="project-desc" data-translate="proj4-desc">Coordinación técnica de un equipo de ingeniería multidisciplinar de más de 30 integrantes bajo metodologías ágiles.</span>
+                        <span class="project-tags">
+                            <span>Coordinación de equipos</span>
+                            <span>Metodologías ágiles</span>
+                            <span>Taiga</span>
+                            <span>Trello</span>
+                            <span>Altium Designer</span>
+                        </span>
+                        <span class="project-more" data-translate="proj4-more">Ver caso de estudio <i class="fa-solid fa-arrow-right"></i></span>
+                    </span>
+                </button>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="exp-title">Trayectoria</h2>
+            </div>
+            
+            <div class="trajectory-wrapper">
+                <!-- A. Experiencia profesional -->
+                <div class="trajectory-block">
+                    <h3 class="trajectory-block-title" data-translate="traj-professional-title"><i class="fa-solid fa-briefcase"></i> Experiencia profesional</h3>
+                    <div class="timeline">
+                        <!-- Ironwelding -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div>
+                                        <span class="timeline-company" data-translate="exp1-comp">Ironwelding Barcelona</span>
+                                        <h4 class="timeline-title" data-translate="exp1-title">Técnico de Fabricación de Baterías e I+D</h4>
+                                    </div>
+                                    <span class="timeline-date" data-translate="exp1-date">Nov 2024 - Actualidad</span>
+                                </div>
+                                <p class="timeline-desc" data-translate="exp1-desc">Desarrollo soluciones electrónicas para sistemas energéticos personalizados:</p>
+                                <div class="timeline-details collapsed" id="details-exp1">
+                                    <ul class="timeline-bullets">
+                                        <li data-translate="exp1-b1"><span>Diseño de PCBs:</span> Creación de circuitos electrónicos y placas de circuito impreso ruteadas con <strong>Altium Designer</strong> y <strong>Proteus</strong> para módulos de baterías LiFePO4 a medida.</li>
+                                        <li data-translate="exp1-b2"><span>Estructura &amp; Montaje:</span> Diseño 3D de piezas para el ensamblaje estructural y gestión de montaje de battery packs.</li>
+                                        <li data-translate="exp1-b3"><span>Gestión técnica:</span> Redacción de documentación técnica, certificados, datasheets y perfiles de prueba de celdas.</li>
+                                    </ul>
+                                </div>
+                                <button class="btn-toggle-details btn-secondary" data-target="details-exp1" data-translate="btn-more">Ver detalles</button>
+                            </div>
+                        </div>
+
+                        <!-- Bosch i Gimpera -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div>
+                                        <span class="timeline-company" data-translate="exp3-comp">Fundació Bosch i Gimpera</span>
+                                        <h4 class="timeline-title" data-translate="exp3-title">Desarrollador y diseñador de brazo robótico</h4>
+                                    </div>
+                                    <span class="timeline-date" data-translate="exp3-date">Sep 2024 - Mar 2025</span>
+                                </div>
+                                <p class="timeline-desc" data-translate="exp3-desc">Participación activa en el proyecto de investigación PRODUCTO (AGAUR 2023):</p>
+                                <div class="timeline-details collapsed" id="details-exp3">
+                                    <ul class="timeline-bullets">
+                                        <li data-translate="exp3-b1">Diseño y modelado 3D mecánico del brazo robótico, selección de materiales y cálculos estructurales de tolerancias con SolidWorks.</li>
+                                        <li data-translate="exp3-b2">Fabricación de prototipos funcionales mediante mecanizado e impresión 3D.</li>
+                                        <li data-translate="exp3-b3">Colaboración en el equipo científico de validación, experimentación y redacción de informes técnicos.</li>
+                                    </ul>
+                                </div>
+                                <button class="btn-toggle-details btn-secondary" data-target="details-exp3" data-translate="btn-more">Ver detalles</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- B. Formación académica -->
+                <div class="trajectory-block">
+                    <h3 class="trajectory-block-title" data-translate="traj-academic-title"><i class="fa-solid fa-graduation-cap"></i> Formación académica</h3>
+                    <div class="timeline">
+                        <!-- Master -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot" style="border-color: var(--accent-purple); box-shadow: 0 0 10px var(--accent-purple);"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div>
+                                        <span class="timeline-company" data-translate="exp2-comp">Universitat Politècnica de Catalunya (UPC)</span>
+                                        <h4 class="timeline-title" data-translate="exp2-title">Máster en Ingeniería de Semiconductores y Diseño Microelectrónico</h4>
+                                    </div>
+                                    <span class="timeline-date" data-translate="exp2-date">Sep 2025 - Jul 2026</span>
+                                </div>
+                                <p class="timeline-desc" data-translate="exp2-desc">Especialidad en Ingeniería de Semiconductores y procesos de fabricación:</p>
+                                <div class="timeline-details collapsed" id="details-edu1">
+                                    <ul class="timeline-bullets">
+                                        <li data-translate="exp2-b1">Estudio en profundidad de los procesos de fabricación microelectrónica y física de dispositivos.</li>
+                                        <li data-translate="exp2-b2">Formación en fabricación microelectrónica y procesos de sala blanca (Cleanroom ISO 5), control ambiental y caracterización.</li>
+                                        <li data-translate="exp2-b3">Diseño y layout físico de circuitos integrados, análisis de fiabilidad, fotónica integrada, dispositivos de potencia y microsensores.</li>
+                                    </ul>
+                                </div>
+                                <button class="btn-toggle-details btn-secondary" data-target="details-edu1" data-translate="btn-more">Ver detalles</button>
+                            </div>
+                        </div>
+
+                        <!-- Grado -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot" style="border-color: var(--accent-purple); box-shadow: 0 0 10px var(--accent-purple);"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div>
+                                        <span class="timeline-company" data-translate="exp6-comp">Universitat Politècnica de Catalunya (UPC)</span>
+                                        <h4 class="timeline-title" data-translate="exp6-title">Grado en Ingeniería Electrónica Industrial y Automática</h4>
+                                    </div>
+                                    <span class="timeline-date" data-translate="exp6-date">Sep 2021 - Jul 2025</span>
+                                </div>
+                                <p class="timeline-desc" data-translate="exp6-desc">Formación de base en ingeniería (240 créditos ECTS):</p>
+                                <div class="timeline-details collapsed" id="details-edu2">
+                                    <ul class="timeline-bullets">
+                                        <li data-translate="exp6-b1">Proyectos de automatización con PLCs (TIA Portal/Siemens), SCADA, instrumentación y soldadura SMD.</li>
+                                        <li data-translate="exp6-b2">Programación en Arduino, Matlab, Python y simulaciones electromecánicas.</li>
+                                        <li data-translate="exp6-b3">Trabajo de Fin de Grado (TFG) enfocado en redes de adquisición de datos mediante CAN Bus en vehículos eléctricos de competición.</li>
+                                    </ul>
+                                    <!-- Enlace al TFG publicado en UPCommons -->
+                                    <div style="margin-top: 14px;">
+                                        <a href="https://hdl.handle.net/2117/446188" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem; border-radius: 8px; display: inline-flex; align-items: center; gap: 8px; border-color: rgba(212, 175, 55, 0.25);">
+                                            <i class="fa-solid fa-graduation-cap" style="color: var(--accent-cyan);"></i> <span data-translate="exp6-tfg">Ver TFG: Adquisición de Datos CAN Bus (UPCommons)</span> <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem; opacity: 0.7;"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <button class="btn-toggle-details btn-secondary" data-target="details-edu2" data-translate="btn-more">Ver detalles</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- C. Competición y proyectos universitarios -->
+                <div class="trajectory-block">
+                    <h3 class="trajectory-block-title" data-translate="traj-competition-title"><i class="fa-solid fa-motorcycle"></i> Competición y proyectos universitarios</h3>
+                    <div class="timeline">
+                        <!-- TL E3Team -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div>
+                                        <span class="timeline-company" data-translate="exp4-comp">E3Team EPSEVG (Motorsport)</span>
+                                        <h4 class="timeline-title" data-translate="exp4-title">Team Leader &amp; Product Owner</h4>
+                                    </div>
+                                    <span class="timeline-date" data-translate="exp4-date">Sep 2023 – Sep 2025</span>
+                                </div>
+                                <p class="timeline-desc" data-translate="exp4-desc">Coordinación técnica de un equipo multidisciplinar de más de 30 integrantes:</p>
+                                <div class="timeline-details collapsed" id="details-comp1">
+                                    <ul class="timeline-bullets">
+                                        <li data-translate="exp4-b1">Coordinación, planificación estratégica y asignación de tareas del equipo de MotoStudent Electric.</li>
+                                        <li data-translate="exp4-b2">Implementación de metodologías ágiles (Agile/Kanban) con Taiga y Trello para definir roadmaps de entrega.</li>
+                                        <li data-translate="exp4-b3">Supervisión técnica de la integración de componentes de hardware, firmware y sistemas estructurales.</li>
+                                        <li data-translate="exp4-b4">Obtención de la 4ª posición internacional en la fase final de la competición en MotorLand Aragón (septiembre de 2025).</li>
+                                    </ul>
+                                </div>
+                                <button class="btn-toggle-details btn-secondary" data-target="details-comp1" data-translate="btn-more">Ver detalles</button>
+                            </div>
+                        </div>
+
+                        <!-- Dev E3Team -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div>
+                                        <span class="timeline-company" data-translate="exp5-comp">E3Team EPSEVG (Motorsport)</span>
+                                        <h4 class="timeline-title" data-translate="exp5-title">Desarrollador de Powertrain, Sistemas &amp; Operaciones</h4>
+                                    </div>
+                                    <span class="timeline-date" data-translate="exp5-date">Sep 2021 - Sep 2023</span>
+                                </div>
+                                <p class="timeline-desc" data-translate="exp5-desc">Desarrollo directo en el hardware eléctrico y de telemetría de la moto de competición:</p>
+                                <div class="timeline-details collapsed" id="details-comp2">
+                                    <ul class="timeline-bullets">
+                                        <li data-translate="exp5-b1"><span>Powertrain &amp; Baterías:</span> Ruteado de esquemas eléctricos de potencia, cableado de alta tensión, montaje del battery pack e integración del BMS Orion.</li>
+                                        <li data-translate="exp5-b2"><span>Sistemas &amp; ECUs:</span> Soldadura y montaje de PCBs personalizadas para centralitas, cableado de baja tensión y desarrollo lógico de display / telemetría CAN.</li>
+                                        <li data-translate="exp5-b3"><span>Operaciones:</span> Gestión técnica de patrocinadores corporativos, crowdfunding y organización interna.</li>
+                                    </ul>
+                                </div>
+                                <button class="btn-toggle-details btn-secondary" data-target="details-comp2" data-translate="btn-more">Ver detalles</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PCB Stackup & Impedance Calculator Section (Módulo Didáctico) -->
+    <section id="pcb-tool" class="section-gold-border">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="tool-title">Estimador de impedancia microstrip</h2>
+                <p class="section-subtitle tool-subtitle" data-translate="tool-subtitle">Una herramienta didáctica para estimar la impedancia de una línea de transmisión tipo microstrip sobre un plano de referencia continuo.</p>
+            </div>
+            
+            <div class="pcb-calculator-card glass-card">
+                <div class="pcb-tool-grid">
+                    <!-- Calculator Controls (Left Column on Desktop, Top on Mobile) -->
+                    <div class="calc-card-pane">
+                        <div class="calc-header">
+                            <span class="calc-display-lbl">Impedancia Característica (Z₀)</span>
+                            <div class="impedance-display">50.0 <span>Ω</span></div>
+                            <div class="impedance-status" data-translate="tool-status-target">Valor próximo al objetivo de 50 Ω</div>
+                            <div class="calc-buttons-container">
+                                <button id="btn-copy-calc" class="btn btn-secondary btn-copy-custom" data-translate="tool-btn-copy"><i class="fa-regular fa-copy"></i> Copiar resultado</button>
+                                <button id="btn-reset-calc" class="btn btn-secondary btn-reset-custom" data-translate="tool-btn-reset"><i class="fa-solid fa-arrow-rotate-left"></i> Restablecer</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Sliders -->
+                        <div class="calc-sliders">
+                            <div class="slider-group">
+                                <div class="slider-info">
+                                    <span data-translate="tool-lbl-w"><i class="fa-solid fa-arrows-left-right"></i> Ancho de la Pista (w)</span>
+                                    <span class="val-display" id="val-width">0.35 mm</span>
+                                </div>
+                                <input type="range" id="slider-width" min="0.10" max="1.50" step="0.05" value="0.35" class="slider-input" aria-label="Ancho de pista en milímetros">
+                                <span class="calc-range-lbl">Rango: 0.10 mm - 1.50 mm</span>
+                            </div>
+                            
+                            <div class="slider-group">
+                                <div class="slider-info">
+                                    <span data-translate="tool-lbl-h"><i class="fa-solid fa-arrows-up-down"></i> Altura del Dieléctrico (h)</span>
+                                    <span class="val-display" id="val-height">0.20 mm</span>
+                                </div>
+                                <input type="range" id="slider-height" min="0.10" max="1.60" step="0.05" value="0.20" class="slider-input" aria-label="Altura de dieléctrico en milímetros">
+                                <span class="calc-range-lbl">Rango: 0.10 mm - 1.60 mm</span>
+                            </div>
+                            
+                            <div class="slider-group">
+                                <div class="slider-info">
+                                    <span data-translate="tool-lbl-mat"><i class="fa-solid fa-microchip"></i> Material del Sustrato</span>
+                                </div>
+                                <select id="select-material" class="form-input calc-select" aria-label="Seleccionar material dieléctrico">
+                                    <option value="4.2" selected>FR-4 estándar (εr = 4.2)</option>
+                                    <option value="3.5">Rogers RO4003C (εr = 3.5)</option>
+                                    <option value="3.4">Poliimida / Flexible (εr = 3.4)</option>
+                                    <option value="9.8">Alúmina Cerámica (εr = 9.8)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Educational info block -->
+                        <div class="calc-education-block">
+                            <p data-translate="tool-edu-geom"><i class="fa-solid fa-circle-info" style="color: var(--accent-cyan); margin-right: 6px;"></i> <strong>Geometría:</strong> Microstrip en línea de transmisión (Capa exterior de cobre sobre un plano de referencia de GND continuo).</p>
+                            <p data-translate="tool-edu-formula"><strong>Grosor de cobre fijo:</strong> 35 µm (1 oz). Altura dieléctrica (h) y permitividad relativa (εr) del sustrato.</p>
+                            <p data-translate="tool-edu-valid"><strong>Cálculo:</strong> Basado en el modelo analítico empírico para líneas de transmisión microstrip single-ended.</p>
+                            <p class="calc-disclaimer" data-translate="tool-edu-disclaimer">
+                                "Los resultados son estimaciones orientativas. El diseño final debe validarse con el fabricante de PCB o mediante una herramienta de simulación electromagnética."
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Stackup Visualizer (Right Column on Desktop, Bottom on Mobile) -->
+                    <div class="stackup-card-pane">
+                        <div class="stackup-controls">
+                            <button class="btn btn-secondary stackup-tab" data-layers="2">2 Capas</button>
+                            <button class="btn btn-secondary stackup-tab active" data-layers="4">4 Capas</button>
+                            <button class="btn btn-secondary stackup-tab" data-layers="6">6 Capas</button>
+                        </div>
+                        
+                        <!-- PCB Layer Diagram Container -->
+                        <div class="pcb-layers-diagram">
+                            <!-- Renders layers dynamically via JS -->
+                        </div>
+                        
+                        <div class="stackup-legend">
+                            <span class="legend-item legend-copper"><i class="fa-solid fa-square" style="color: #d4af37; margin-right: 4px;"></i> <span data-translate="tool-legend-copper">Cobre / pistas y planos — 35 µm</span></span>
+                            <span class="legend-item legend-prepreg"><i class="fa-solid fa-square" style="color: #836e5f; margin-right: 4px;"></i> <span data-translate="tool-legend-prep">Dieléctrico prepreg — espesor controlado</span></span>
+                            <span class="legend-item legend-core"><i class="fa-solid fa-square" style="color: #10351b; margin-right: 4px;"></i> <span data-translate="tool-legend-subs">Núcleo FR-4 / core — sustrato rígido</span></span>
+                            <span class="legend-item legend-gnd"><i class="fa-solid fa-square" style="color: #d4af37; margin-right: 4px;"></i> <span data-translate="tool-legend-gnd">Plano de referencia GND — retorno de señal</span></span>
+                        </div>
+                        
+                        <!-- Permanent Calculation Explanation Box -->
+                        <div class="stackup-explanation" id="stackup-calc-explanation" data-translate="tool-calc-explanation">
+                            Este cálculo estima una línea microstrip single-ended situada en la capa superior. La impedancia se calcula usando el ancho de pista (w), la altura del dieléctrico (h), la permitividad del material y el plano de referencia GND más cercano.
+                        </div>
+                        
+                        <!-- Interactive Info Box below Stackup -->
+                        <div id="layer-info-box" class="stackup-info-box">
+                            Haz clic o pasa el cursor sobre cualquier capa de la placa para ver su función técnica.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="skills-title">Habilidades técnicas</h2>
+            </div>
+            <div class="skills-grid">
+                
+                <!-- A. Electrónica y Diseño de PCB -->
+                <div class="skills-column">
+                    <h3 data-translate="skills-col1"><span><i class="fa-solid fa-microchip"></i></span> Electrónica y diseño de PCB</h3>
+                    <div class="skill-list">
+                        <div class="skill-item"><span class="skill-name">Altium Designer</span></div>
+                        <div class="skill-item"><span class="skill-name">Proteus</span></div>
+                        <div class="skill-item"><span class="skill-name" data-translate="skill-schematic">Diseño de esquemas</span></div>
+                        <div class="skill-item"><span class="skill-name" data-translate="skill-layout">Layout y ruteado de PCB</span></div>
+                        <div class="skill-item"><span class="skill-name" data-translate="skill-sigcond">Acondicionamiento de señal</span></div>
+                        <div class="skill-item"><span class="skill-name" data-translate="skill-proto">Prototipado y soldadura</span></div>
+                    </div>
+                </div>
+ 
+                <!-- B. Sistemas Embebidos y Comunicaciones -->
+                <div class="skills-column">
+                    <h3 data-translate="skills-col2"><span><i class="fa-solid fa-code"></i></span> Sistemas embebidos y comunicaciones</h3>
+                    <div class="skill-list">
+                        <div class="skill-item"><span class="skill-name">C / C++</span></div>
+                        <div class="skill-item"><span class="skill-name">CAN Bus</span></div>
+                        <div class="skill-item"><span class="skill-name">Vector CANoe / Signal-Oriented CAPL</span></div>
+                        <div class="skill-item"><span class="skill-name">Bases de datos DBC</span></div>
+                        <div class="skill-item"><span class="skill-name" data-translate="skill-data-acq">Adquisición de datos</span></div>
+                        <div class="skill-item"><span class="skill-name" data-translate="skill-stm32">STM32 (Práctica en proyectos)</span></div>
+                        <div class="skill-item"><span class="skill-name" data-translate="skill-esp32">ESP32 (Práctica en proyectos)</span></div>
+                        <div class="skill-item"><span class="skill-name" data-translate="skill-arduino">Arduino (Práctica en proyectos)</span></div>
+                        <div class="skill-item"><span class="skill-name">UART, SPI, I²C, RS-485</span></div>
+                    </div>
+                </div>
+
+                <!-- C. Semiconductores y Microelectrónica -->
+                <div class="skills-column">
+                    <h3 data-translate="skills-col3"><span><i class="fa-solid fa-atom"></i></span> Semiconductores y microelectrónica</h3>
+                    <div class="skill-list">
+                        <div class="skill-item"><span class="skill-name" data-translate="skill-phys-semi">Física de semiconductores</span></div>
+                        <div class="skill-item"><span class="skill-name" data-translate="skill-fab-micro">Fabricación microelectrónica</span></div>
+                        <div class="skill-item"><span class="skill-name" data-translate="skill-cleanroom">Procesos de sala blanca</span></div>
+                        <div class="skill-item"><span class="skill-name" data-translate="skill-micro-design">Diseño microelectrónico</span></div>
+                        <div class="skill-item"><span class="skill-name" data-translate="skill-ic-layout">Layout de circuitos integrados</span></div>
+                        <div class="skill-item"><span class="skill-name" data-translate="skill-char-rel">Caracterización y fiabilidad</span></div>
+                    </div>
+                </div>
+
+                <!-- D. Automatización, Diseño y Liderazgo -->
+                <div class="skills-column">
+                    <h3 data-translate="skills-col4"><span><i class="fa-solid fa-users-gear"></i></span> Automatización y gestión técnica</h3>
+                    <div class="skill-list">
+                        <div class="skill-item"><span class="skill-name">PLC y SCADA (Siemens/TIA)</span></div>
+                        <div class="skill-item"><span class="skill-name">SolidWorks (Diseño 3D)</span></div>
+                        <div class="skill-item"><span class="skill-name" data-translate="skill-agile">Metodologías Agile y Kanban</span></div>
+                        <div class="skill-item"><span class="skill-name" data-translate="skill-team-coord">Coordinación de equipos</span></div>
+                        <div class="skill-item"><span class="skill-name" data-translate="skill-tech-plan">Planificación técnica</span></div>
+                        <div class="skill-item"><span class="skill-name">Taiga / Trello</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Bitácora Section (Engineering Log) -->
+    <section id="blog" class="section-gold-border" style="display: none;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="blog-title">Bitácora</h2>
+                <p class="section-subtitle blog-subtitle" data-translate="blog-subtitle">Publicaciones técnicas, avances en proyectos y pruebas de laboratorio.</p>
+            </div>
+            
+            <div id="blog-posts-container" style="display: flex; flex-direction: column; gap: 24px; max-width: 800px; margin: 0 auto;">
+                <!-- Renders dynamically from log_data.json via JS. -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="contact-title">¿Hablamos?</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 class="contact-info-title" data-translate="contact-grid-title">Información de Contacto</h3>
+                    <p class="contact-info-desc" data-translate="contact-grid-desc">Para oportunidades profesionales, colaboraciones técnicas o proyectos de electrónica, puedes contactar conmigo por correo, LinkedIn o WhatsApp.</p>
+                    
+                    <div class="contact-card">
+                        <div class="feature-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>jrmelero@proton.me <button class="copy-btn" aria-label="Copiar correo electrónico"><i class="fa-regular fa-copy"></i> Copiar</button></p>
+                        </div>
+                    </div>
+ 
+                    <div class="contact-card">
+                        <div class="feature-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                        <div class="contact-details">
+                            <h4>LinkedIn</h4>
+                            <a href="https://www.linkedin.com/in/jose-rodriguez-melero-94b6b1257/" target="_blank" rel="noopener noreferrer">jose-rodriguez-melero-94b6b1257 <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem;"></i></a>
+                        </div>
+                    </div>
+ 
+                    <div class="contact-card">
+                        <div class="feature-icon"><i class="fa-brands fa-github"></i></div>
+                        <div class="contact-details">
+                            <h4>GitHub</h4>
+                            <a href="https://github.com/jose-r-m" target="_blank" rel="noopener noreferrer">jose-r-m <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem;"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="feature-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div class="contact-details">
+                            <h4>WhatsApp</h4>
+                            <a href="https://wa.me/34666924889?text=Hola%20Jose%2C%20he%20visitado%20tu%20portfolio%20profesional%20y%20me%20gustar%C3%ADa%20contactar%20contigo." target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-whatsapp-custom">
+                                <i class="fa-brands fa-whatsapp" style="color: var(--accent-green);"></i> <span data-translate="contact-whatsapp-btn">Contactar por WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card">
+                    <form class="contact-form" id="contact-form-el">
+                        <div class="form-group">
+                            <label for="name" class="form-label" data-translate="form-name">Nombre</label>
+                            <input type="text" id="name" class="form-input" placeholder="Tu nombre" required data-translate-placeholder="form-name-ph">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label" data-translate="form-email">Correo Electrónico</label>
+                            <input type="email" id="email" class="form-input" placeholder="tu@correo.com" required data-translate-placeholder="form-email-ph">
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label" data-translate="form-message">Mensaje</label>
+                            <textarea id="message" class="form-input" placeholder="¿En qué puedo ayudarte?" required data-translate-placeholder="form-msg-ph"></textarea>
+                        </div>
+                        <div style="margin-bottom: 12px;">
+                            <button type="submit" class="btn btn-primary" style="width: 100%;" data-translate="form-btn"><i class="fa-solid fa-paper-plane"></i> Enviar por correo</button>
+                        </div>
+                        
+                        <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.4;" data-translate="form-notice">
+                            Al continuar se abrirá tu aplicación de correo electrónico.
+                        </p>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 6px;" data-translate="form-privacy">
+                            Los datos introducidos en este formulario se utilizarán únicamente para responder a tu mensaje.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <p class="footer-text" data-translate="footer-text">© 2026 Jose Rodríguez Melero. Portfolio profesional.</p>
+        </div>
+    </footer>
+
+    <!-- Case Study Detail Modal (Accessible Dialog) -->
+    <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-project-title" aria-hidden="true">
+        <div class="modal-content glass-card" tabindex="-1">
+            <button class="modal-close" aria-label="Cerrar ventana de detalles" id="btn-close-modal">&times;</button>
+            <div class="modal-body" id="modal-body-container">
+                <!-- Content loaded dynamically via script.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="scroll-btn" aria-label="Subir al inicio">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Toast Notification -->
+    <div class="toast" role="alert" aria-live="polite"></div>
+
+    <!-- JS Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

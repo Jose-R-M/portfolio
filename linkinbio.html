@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Jose Rodríguez Melero</title>
+  <meta name="description" content="Jose Rodríguez Melero — Ingeniero, desarrollador y maker. Conecta conmigo en LinkedIn y GitHub." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ═══ TOKENS ═══ */
+    :root {
+      --bg:       #07080f;
+      --surface:  rgba(255,255,255,0.05);
+      --surface2: rgba(255,255,255,0.08);
+      --border:   rgba(255,255,255,0.09);
+      --border-h: rgba(255,255,255,0.18);
+      --text:     #f0f2ff;
+      --muted:    #8892a4;
+      --dim:      #4e5668;
+      --accent1:  #7c6dfa;
+      --accent2:  #b78bff;
+      --accent3:  #38c9f7;
+      --glow:     rgba(124,109,250,0.28);
+      --font:     'Inter', system-ui, sans-serif;
+    }
+
+    /* ═══ RESET ═══ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 0 60px;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ═══ BG BLOBS ═══ */
+    .bg-blobs {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.35;
+    }
+    .blob-1 {
+      width: 380px; height: 380px;
+      top: -80px; left: -100px;
+      background: radial-gradient(circle, #7c6dfa 0%, transparent 70%);
+      animation: drift 12s ease-in-out infinite alternate;
+    }
+    .blob-2 {
+      width: 300px; height: 300px;
+      top: 20%; right: -80px;
+      background: radial-gradient(circle, #38c9f7 0%, transparent 70%);
+      animation: drift 16s ease-in-out infinite alternate-reverse;
+    }
+    .blob-3 {
+      width: 250px; height: 250px;
+      bottom: 10%; left: 20%;
+      background: radial-gradient(circle, #b78bff 0%, transparent 70%);
+      animation: drift 10s ease-in-out infinite alternate;
+    }
+    @keyframes drift {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(30px, 20px) scale(1.1); }
+    }
+
+    /* ═══ WRAPPER ═══ */
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 480px;
+      padding: 0 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    /* ═══ PROFILE ═══ */
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 52px 0 24px;
+      text-align: center;
+    }
+    .avatar-wrap {
+      position: relative;
+      width: 108px;
+      height: 108px;
+    }
+    .avatar-ring {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, var(--accent1), var(--accent2), var(--accent3), var(--accent1));
+      animation: spin 4s linear infinite;
+      z-index: 0;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .avatar-inner {
+      position: absolute;
+      inset: 3px;
+      border-radius: 50%;
+      background: var(--bg);
+      z-index: 1;
+    }
+    .avatar-img {
+      position: absolute;
+      inset: 5px;
+      border-radius: 50%;
+      object-fit: cover;
+      z-index: 2;
+    }
+    .profile-name {
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #fff 30%, var(--accent2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .profile-role {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 400;
+      margin-top: -8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .profile-role::before, .profile-role::after {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--border);
+    }
+    .profile-bio {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 320px;
+    }
+
+    /* ═══ SECTION LABEL ═══ */
+    .section-label {
+      width: 100%;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dim);
+      padding: 0 4px;
+      margin-top: 6px;
+    }
+
+    /* ═══ SOCIAL LINKS ═══ */
+    .link-card {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 17px 20px;
+      border-radius: 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+      position: relative;
+      overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .link-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .link-card--linkedin::before { background: linear-gradient(135deg, rgba(10,102,194,0.2), transparent 60%); }
+    .link-card--github::before   { background: linear-gradient(135deg, rgba(124,109,250,0.18), transparent 60%); }
+    .link-card:active, .link-card:hover {
+      transform: scale(0.985) translateY(-2px);
+      border-color: var(--border-h);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06) inset;
+    }
+    .link-card:active::before, .link-card:hover::before { opacity: 1; }
+    .link-icon {
+      width: 46px; height: 46px;
+      border-radius: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative; z-index: 1;
+    }
+    .link-card--linkedin .link-icon { background: rgba(10,102,194,0.22); color: #60b8ff; }
+    .link-card--github   .link-icon { background: rgba(124,109,250,0.22); color: var(--accent2); }
+    .link-icon svg { width: 22px; height: 22px; }
+    .link-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      flex: 1;
+      position: relative; z-index: 1;
+    }
+    .link-name   { font-weight: 700; font-size: 0.97rem; }
+    .link-handle { font-size: 0.77rem; color: var(--muted); }
+    .link-arrow  {
+      color: var(--dim);
+      font-size: 1.1rem;
+      position: relative; z-index: 1;
+      transition: transform 0.2s, color 0.2s;
+    }
+    .link-card:hover .link-arrow { transform: translateX(3px); color: var(--accent2); }
+
+    /* ═══ PROJECT CARDS ═══ */
+    .project-card {
+      width: 100%;
+      border-radius: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .project-card:active, .project-card:hover {
+      border-color: var(--border-h);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+    }
+    .project-banner {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-banner--moto {
+      background: linear-gradient(135deg, #0d0a2e 0%, #1a1055 50%, #0a1a2e 100%);
+    }
+    .project-banner--soon {
+      background: linear-gradient(135deg, #0a0a1a 0%, #12102a 100%);
+    }
+    .banner-icon {
+      color: rgba(124,109,250,0.7);
+      position: relative; z-index: 1;
+    }
+    .banner-glow {
+      position: absolute;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(124,109,250,0.25) 0%, transparent 70%);
+    }
+    .project-badge {
+      position: absolute;
+      top: 12px; left: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .badge--uni  { background: rgba(124,109,250,0.25); color: var(--accent2); border: 1px solid rgba(124,109,250,0.3); }
+    .badge--soon { background: rgba(255,255,255,0.07); color: var(--muted);   border: 1px solid var(--border); }
+    .project-body {
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .project-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .project-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .project-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 2px;
+    }
+    .chip {
+      padding: 3px 9px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.7rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .project-link-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 4px;
+    }
+    .proj-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent1);
+      transition: color 0.2s;
+    }
+    .proj-link:hover { color: var(--accent2); }
+    .proj-link--dim { color: var(--dim); cursor: default; pointer-events: none; }
+
+    /* ═══ FOOTER ═══ */
+    .footer {
+      margin-top: 24px;
+      color: var(--dim);
+      font-size: 0.72rem;
+      text-align: center;
+    }
+
+    /* ═══ SCROLL REVEAL ═══ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- blobs -->
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <div class="wrapper">
+
+    <!-- ── PROFILE ── -->
+    <div class="profile reveal" id="profile">
+      <div class="avatar-wrap">
+        <div class="avatar-ring"></div>
+        <div class="avatar-inner"></div>
+        <img
+          class="avatar-img"
+          src="https://avatars.githubusercontent.com/u/297281822?v=4"
+          alt="Foto de Jose Rodríguez Melero"
+          onerror="this.src='https://ui-avatars.com/api/?name=Jose+Rodriguez+Melero&size=200&background=7c6dfa&color=fff&bold=true'"
+        />
+      </div>
+      <h1 class="profile-name">Jose Rodríguez Melero</h1>
+      <p class="profile-role">Ingeniero · Desarrollador · Maker</p>
+      <p class="profile-bio">
+        Apasionado por la tecnología y la ingeniería.
+        Proyectos desde la universidad hasta el mundo profesional.
+      </p>
+    </div>
+
+    <!-- ── REDES SOCIALES ── -->
+    <p class="section-label reveal">Encuéntrame en</p>
+
+    <a
+      href="https://www.linkedin.com/in/jose-rodriguez-melero-94b6b1257/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="link-card link-card--linkedin reveal"
+      id="link-linkedin"
+    >
+      <div class="link-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+      </div>
+      <div class="link-text">
+        <span class="link-name">LinkedIn</span>
+        <span class="link-handle">jose-rodriguez-melero</span>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+
+    <a
+      href="https://github.com/Jose-R-M"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="link-card link-card--github reveal"
+      id="link-github"
+    >
+      <div class="link-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+        </svg>
+      </div>
+      <div class="link-text">
+        <span class="link-name">GitHub</span>
+        <span class="link-handle">Jose-R-M</span>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+
+    <!-- ── PROYECTOS ── -->
+    <p class="section-label reveal" style="margin-top:8px">Mis proyectos</p>
+
+    <!-- MotoStudent -->
+    <a
+      href="https://www.linkedin.com/in/jose-rodriguez-melero-94b6b1257/details/projects/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="project-card reveal"
+      id="proj-motostudent"
+    >
+      <div class="project-banner project-banner--moto">
+        <div class="banner-glow"></div>
+        <div class="banner-icon">
+          <svg width="64" height="44" viewBox="0 0 80 50" fill="none" aria-hidden="true">
+            <ellipse cx="15" cy="38" rx="10" ry="10" stroke="currentColor" stroke-width="2.5" fill="none"/>
+            <ellipse cx="65" cy="38" rx="10" ry="10" stroke="currentColor" stroke-width="2.5" fill="none"/>
+            <path d="M25 38 L30 20 L45 18 L55 28 L55 38" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+            <path d="M45 18 L50 10 L60 12 L55 28" stroke="currentColor" stroke-width="2.5" fill="none"/>
+            <path d="M30 20 L25 25" stroke="currentColor" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
+        <span class="project-badge badge--uni">Universidad</span>
+      </div>
+      <div class="project-body">
+        <h2 class="project-title">MotoStudent</h2>
+        <p class="project-desc">Competición universitaria internacional de diseño y fabricación de una moto de competición. Análisis y desarrollo técnico del prototipo.</p>
+        <div class="project-chips">
+          <span class="chip">Diseño mecánico</span>
+          <span class="chip">CAD</span>
+          <span class="chip">Análisis estructural</span>
+        </div>
+        <div class="project-link-row">
+          <span class="proj-link">Ver en LinkedIn →</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- TFG -->
+    <div class="project-card reveal" id="proj-tfg">
+      <div class="project-banner project-banner--soon">
+        <div class="banner-glow" style="background: radial-gradient(circle, rgba(183,139,255,0.2) 0%, transparent 70%);"></div>
+        <div class="banner-icon" style="color: rgba(183,139,255,0.6);">
+          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M3 9h18M9 21V9"/>
+          </svg>
+        </div>
+        <span class="project-badge badge--soon">Próximamente</span>
+      </div>
+      <div class="project-body">
+        <h2 class="project-title">Trabajo de Fin de Grado</h2>
+        <p class="project-desc">Proyecto final de carrera. Más detalles próximamente sobre tema, metodología y resultados.</p>
+        <div class="project-chips">
+          <span class="chip">Investigación</span>
+          <span class="chip">Ingeniería</span>
+        </div>
+        <div class="project-link-row">
+          <span class="proj-link proj-link--dim">En construcción…</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proyectos Empresa -->
+    <div class="project-card reveal" id="proj-empresa">
+      <div class="project-banner project-banner--soon">
+        <div class="banner-glow" style="background: radial-gradient(circle, rgba(56,201,247,0.18) 0%, transparent 70%);"></div>
+        <div class="banner-icon" style="color: rgba(56,201,247,0.55);">
+          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="2" y="7" width="20" height="14" rx="2"/>
+            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+            <line x1="12" y1="12" x2="12" y2="16"/>
+            <line x1="10" y1="14" x2="14" y2="14"/>
+          </svg>
+        </div>
+        <span class="project-badge badge--soon">Próximamente</span>
+      </div>
+      <div class="project-body">
+        <h2 class="project-title">Proyectos Profesionales</h2>
+        <p class="project-desc">Proyectos realizados en entorno laboral. Más información disponible próximamente.</p>
+        <div class="project-chips">
+          <span class="chip">Industria</span>
+          <span class="chip">Innovación</span>
+        </div>
+        <div class="project-link-row">
+          <span class="proj-link proj-link--dim">En construcción…</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <p class="footer reveal">© 2026 Jose Rodríguez Melero</p>
+
+  </div><!-- /wrapper -->
+
+  <script>
+    // Scroll reveal
+    const items = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('in'), i * 55);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    items.forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

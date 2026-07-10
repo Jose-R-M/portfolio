@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+FN;CHARSET=UTF-8:Jose Rodríguez Melero
+N;CHARSET=UTF-8:Rodríguez Melero;Jose;;;
+TITLE;CHARSET=UTF-8:Ingeniero en Electrónica Industrial y Automática
+EMAIL;TYPE=INTERNET:jrmelero@proton.me
+TEL;TYPE=CELL,VOICE,MSG:+34666924889
+URL;TYPE=WORK:https://jose-r-m.github.io/portfolio/
+URL;TYPE=LINKEDIN:https://www.linkedin.com/in/jose-rodriguez-melero-94b6b1257/
+URL;TYPE=GITHUB:https://github.com/jose-r-m
+END:VCARD
