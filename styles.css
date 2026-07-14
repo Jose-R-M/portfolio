@@ -1296,6 +1296,11 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .container {
+        padding-left: 18px !important;
+        padding-right: 24px !important;
+    }
+    
     section {
         padding: 95px 0;
     }
