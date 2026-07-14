@@ -183,32 +183,32 @@ document.addEventListener('DOMContentLoaded', () => {
             es: {
                 top: "Capa superior — Señal",
                 prepreg_h: "Prepreg — h",
-                gnd_ref: "Plano interno 1 — GND ref.",
+                gnd_ref: "Plano int. 1 — GND ref.",
                 core: "Core FR-4",
-                vcc: "Plano interno 2 — VCC",
+                vcc: "Plano int. 2 — VCC",
                 prepreg: "Prepreg",
-                bottom_gnd: "Capa inferior — GND",
-                bottom_gnd_ref: "Capa inferior — GND ref."
+                bottom_gnd: "Capa inf. — GND",
+                bottom_gnd_ref: "Capa inf. — GND ref."
             },
             ca: {
                 top: "Capa superior — Senyal",
                 prepreg_h: "Prepreg — h",
-                gnd_ref: "Pla intern 1 — GND ref.",
+                gnd_ref: "Pla int. 1 — GND ref.",
                 core: "Nucli FR-4",
-                vcc: "Pla intern 2 — VCC",
+                vcc: "Pla int. 2 — VCC",
                 prepreg: "Prepreg",
-                bottom_gnd: "Capa inferior — GND",
-                bottom_gnd_ref: "Capa inferior — GND ref."
+                bottom_gnd: "Capa inf. — GND",
+                bottom_gnd_ref: "Capa inf. — GND ref."
             },
             en: {
                 top: "Top layer — Signal",
                 prepreg_h: "Prepreg — h",
-                gnd_ref: "Inner plane 1 — GND ref.",
+                gnd_ref: "Inner pl. 1 — GND ref.",
                 core: "FR-4 core",
-                vcc: "Inner plane 2 — VCC",
+                vcc: "Inner pl. 2 — VCC",
                 prepreg: "Prepreg",
                 bottom_gnd: "Bottom layer — GND",
-                bottom_gnd_ref: "Bottom layer — GND ref."
+                bottom_gnd_ref: "Bottom lay. — GND ref."
             }
         }[currentLang] || labels.es;
 
@@ -246,39 +246,40 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }[currentLang] || hoverDescs.es;
         
+        const hHeight = Math.round(20 + hVal * 80);
         let html = '';
         
         if (currentLayers === 2) {
             html = `
                 <div class="pcb-layer copper layer-signal in-calc-model" data-legend="copper" data-info="${hoverDescs.top}">${labels.top} <span class="pcb-layer-thickness">35µm</span></div>
-                <div class="pcb-layer dielectric in-calc-model" data-legend="prepreg" data-info="${hoverDescs.prepreg_h}" style="height: 60px;">${labels.prepreg_h} (h) <span class="pcb-layer-thickness">${hVal.toFixed(2)} mm</span></div>
+                <div class="pcb-layer dielectric in-calc-model" data-legend="prepreg" data-info="${hoverDescs.prepreg_h}" style="height: ${hHeight}px;">${labels.prepreg_h} (h) <span class="pcb-layer-thickness">${hVal.toFixed(2)} mm</span></div>
                 <div class="pcb-layer copper layer-plane in-calc-model gnd-ref-highlight" data-legend="gnd" data-info="${hoverDescs.bottom_ref}">${labels.bottom_gnd_ref} <span class="pcb-layer-thickness">35µm</span></div>
             `;
         } else if (currentLayers === 4) {
             html = `
                 <div class="pcb-layer copper layer-signal in-calc-model" data-legend="copper" data-info="${hoverDescs.top}">${labels.top} <span class="pcb-layer-thickness">35µm</span></div>
-                <div class="pcb-layer dielectric in-calc-model" data-legend="prepreg" data-info="${hoverDescs.prepreg_h}" style="height: 35px;">${labels.prepreg_h} (h) <span class="pcb-layer-thickness">${hVal.toFixed(2)} mm</span></div>
+                <div class="pcb-layer dielectric in-calc-model" data-legend="prepreg" data-info="${hoverDescs.prepreg_h}" style="height: ${hHeight}px;">${labels.prepreg_h} (h) <span class="pcb-layer-thickness">${hVal.toFixed(2)} mm</span></div>
                 <div class="pcb-layer copper layer-plane in-calc-model gnd-ref-highlight" data-legend="gnd" data-info="${hoverDescs.gnd_ref}">${labels.gnd_ref} <span class="pcb-layer-thickness">35µm</span></div>
-                <div class="pcb-layer prepreg" data-legend="core" data-info="${hoverDescs.core}" style="height: 40px;">${labels.core} <span class="pcb-layer-thickness">0.80 mm</span></div>
+                <div class="pcb-layer prepreg" data-legend="core" data-info="${hoverDescs.core}" style="height: 75px;">${labels.core} <span class="pcb-layer-thickness">0.80 mm</span></div>
                 <div class="pcb-layer copper layer-plane" data-legend="copper" data-info="${hoverDescs.vcc}">${labels.vcc} <span class="pcb-layer-thickness">35µm</span></div>
-                <div class="pcb-layer dielectric" data-legend="prepreg" data-info="${hoverDescs.prepreg}" style="height: 20px; opacity: 0.7;">${labels.prepreg} <span class="pcb-layer-thickness">0.20 mm</span></div>
+                <div class="pcb-layer dielectric" data-legend="prepreg" data-info="${hoverDescs.prepreg}" style="height: 36px; opacity: 0.7;">${labels.prepreg} <span class="pcb-layer-thickness">0.20 mm</span></div>
                 <div class="pcb-layer copper layer-plane" data-legend="copper" data-info="${hoverDescs.bottom}">${labels.bottom_gnd} <span class="pcb-layer-thickness">35µm</span></div>
             `;
         } else if (currentLayers === 6) {
             html = `
                 <div class="pcb-layer copper layer-signal in-calc-model" data-legend="copper" data-info="${hoverDescs.top}">${labels.top} <span class="pcb-layer-thickness">35µm</span></div>
-                <div class="pcb-layer dielectric in-calc-model" data-legend="prepreg" data-info="${hoverDescs.prepreg_h}" style="height: 25px;">${labels.prepreg_h} (h) <span class="pcb-layer-thickness">${hVal.toFixed(2)} mm</span></div>
+                <div class="pcb-layer dielectric in-calc-model" data-legend="prepreg" data-info="${hoverDescs.prepreg_h}" style="height: ${hHeight}px;">${labels.prepreg_h} (h) <span class="pcb-layer-thickness">${hVal.toFixed(2)} mm</span></div>
                 <div class="pcb-layer copper layer-plane in-calc-model gnd-ref-highlight" data-legend="gnd" data-info="${hoverDescs.gnd_ref}">${labels.gnd_ref} <span class="pcb-layer-thickness">35µm</span></div>
-                <div class="pcb-layer prepreg" data-legend="core" data-info="${hoverDescs.core}" style="height: 25px;">${labels.core} <span class="pcb-layer-thickness">0.40 mm</span></div>
+                <div class="pcb-layer prepreg" data-legend="core" data-info="${hoverDescs.core}" style="height: 50px;">${labels.core} <span class="pcb-layer-thickness">0.40 mm</span></div>
                 
-                <div class="pcb-layer copper layer-plane" data-legend="copper" data-info="${hoverDescs.mid_sig}">${currentLang === 'en' ? 'Inner mid-signal' : (currentLang === 'ca' ? 'Capa interna 2 — Senyal' : 'Capa interna 2 — Señal')} <span class="pcb-layer-thickness">35µm</span></div>
-                <div class="pcb-layer dielectric" data-legend="prepreg" data-info="${hoverDescs.prepreg}" style="height: 20px; opacity: 0.7;">${labels.prepreg} <span class="pcb-layer-thickness">0.20 mm</span></div>
+                <div class="pcb-layer copper layer-plane" data-legend="copper" data-info="${hoverDescs.mid_sig}">${currentLang === 'en' ? 'Inner mid-signal' : (currentLang === 'ca' ? 'Capa int. 2 — Senyal' : 'Capa int. 2 — Señal')} <span class="pcb-layer-thickness">35µm</span></div>
+                <div class="pcb-layer dielectric" data-legend="prepreg" data-info="${hoverDescs.prepreg}" style="height: 36px; opacity: 0.7;">${labels.prepreg} <span class="pcb-layer-thickness">0.20 mm</span></div>
                 
                 <div class="pcb-layer copper layer-plane" data-legend="copper" data-info="${hoverDescs.vcc}">${labels.vcc} <span class="pcb-layer-thickness">35µm</span></div>
-                <div class="pcb-layer prepreg" data-legend="core" data-info="${hoverDescs.core}" style="height: 25px;">${labels.core} <span class="pcb-layer-thickness">0.40 mm</span></div>
+                <div class="pcb-layer prepreg" data-legend="core" data-info="${hoverDescs.core}" style="height: 50px;">${labels.core} <span class="pcb-layer-thickness">0.40 mm</span></div>
                 
-                <div class="pcb-layer copper layer-plane" data-legend="copper" data-info="${currentLang === 'en' ? 'Inner plane 4 — GND' : (currentLang === 'ca' ? 'Pla intern 4 — GND' : 'Plano interno 4 — GND')}" style="opacity: 0.85;">${currentLang === 'en' ? 'Inner plane 4 — GND' : (currentLang === 'ca' ? 'Pla intern 4 — GND' : 'Plano interno 4 — GND')} <span class="pcb-layer-thickness">35µm</span></div>
-                <div class="pcb-layer dielectric" data-legend="prepreg" data-info="${hoverDescs.prepreg}" style="height: 20px; opacity: 0.7;">${labels.prepreg} <span class="pcb-layer-thickness">0.20 mm</span></div>
+                <div class="pcb-layer copper layer-plane" data-legend="copper" data-info="${currentLang === 'en' ? 'Inner pl. 4 — GND' : (currentLang === 'ca' ? 'Pla int. 4 — GND' : 'Plano int. 4 — GND')}" style="opacity: 0.85;">${currentLang === 'en' ? 'Inner pl. 4 — GND' : (currentLang === 'ca' ? 'Pla int. 4 — GND' : 'Plano int. 4 — GND')} <span class="pcb-layer-thickness">35µm</span></div>
+                <div class="pcb-layer dielectric" data-legend="prepreg" data-info="${hoverDescs.prepreg}" style="height: 36px; opacity: 0.7;">${labels.prepreg} <span class="pcb-layer-thickness">0.20 mm</span></div>
                 <div class="pcb-layer copper layer-plane" data-legend="copper" data-info="${hoverDescs.bottom}">${labels.bottom_gnd} <span class="pcb-layer-thickness">35µm</span></div>
             `;
         }

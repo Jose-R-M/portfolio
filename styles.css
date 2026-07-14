@@ -1138,6 +1138,7 @@ footer {
 .footer-text {
     font-size: 0.9rem;
     color: var(--text-muted);
+    text-align: center !important;
 }
 
 .footer-text span {
@@ -1312,8 +1313,8 @@ footer {
         top: 70px;
         left: 0;
         width: 100%;
-        background: rgba(6, 9, 19, 0.98);
-        border-bottom: 1px solid var(--glass-border);
+        background: rgba(0, 0, 0, 0.98);
+        border-bottom: 1px solid var(--accent-cyan);
         padding: 24px;
         gap: 20px;
     }
@@ -1860,14 +1861,14 @@ footer {
     position: absolute;
     top: 100%;
     right: 0;
-    background: #080b13;
-    border: 1px solid var(--glass-border);
+    background: #000000;
+    border: 1px solid var(--accent-cyan);
     border-radius: 8px;
     padding: 6px 0;
     margin-top: 6px;
     list-style: none;
     min-width: 130px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
     z-index: 1000;
     text-align: left;
 }
@@ -1904,6 +1905,15 @@ footer {
         margin-bottom: 14px !important;
     }
     
+    .badge {
+        font-size: 0.65rem !important;
+        letter-spacing: 0.5px !important;
+        padding: 4px 10px !important;
+        white-space: nowrap !important;
+        margin-bottom: 20px !important;
+        display: inline-flex !important;
+    }
+    
     .timeline-header {
         flex-direction: column;
         align-items: flex-start;
@@ -1928,8 +1938,8 @@ footer {
     .lang-dropdown-trigger {
         width: 100%;
         justify-content: space-between;
-        border: 1px solid var(--glass-border);
-        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--accent-cyan);
+        background: #000000;
     }
     .lang-dropdown-menu {
         position: static;
@@ -1967,7 +1977,7 @@ footer {
     
     .pcb-layer {
         padding: 0 8px !important;
-        font-size: 0.72rem !important;
+        font-size: 0.68rem !important;
     }
     
     .pcb-layer-thickness {
