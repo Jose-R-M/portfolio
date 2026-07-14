@@ -364,26 +364,49 @@
                 <div class="trajectory-block">
                     <h3 class="trajectory-block-title" data-translate="traj-professional-title"><i class="fa-solid fa-briefcase"></i> Experiencia profesional</h3>
                     <div class="timeline">
-                        <!-- Ironwelding -->
+                        <!-- Ironwelding R&D -->
                         <div class="timeline-item">
                             <div class="timeline-dot"></div>
                             <div class="timeline-content">
                                 <div class="timeline-header">
                                     <div>
                                         <span class="timeline-company" data-translate="exp1-comp">Ironwelding Barcelona</span>
-                                        <h4 class="timeline-title" data-translate="exp1-title">Técnico de Fabricación de Baterías e I+D</h4>
+                                        <h4 class="timeline-title" data-translate="exp1-title">Diseñador de Hardware y Baterías I+D</h4>
                                     </div>
                                     <span class="timeline-date" data-translate="exp1-date">Nov 2024 - Actualidad</span>
                                 </div>
-                                <p class="timeline-desc" data-translate="exp1-desc">Desarrollo soluciones electrónicas para sistemas energéticos personalizados:</p>
+                                <p class="timeline-desc" data-translate="exp1-desc">Diseño y desarrollo de esquemas electrónicos, layouts de PCB multicapa y sistemas de adquisición de datos (BMS) para packs de baterías de litio en aplicaciones industriales.</p>
                                 <div class="timeline-details collapsed" id="details-exp1">
                                     <ul class="timeline-bullets">
-                                        <li data-translate="exp1-b1"><span>Diseño de PCBs:</span> Creación de circuitos electrónicos y placas de circuito impreso ruteadas con <strong>Altium Designer</strong> y <strong>Proteus</strong> para módulos de baterías LiFePO4 a medida.</li>
-                                        <li data-translate="exp1-b2"><span>Estructura &amp; Montaje:</span> Diseño 3D de piezas para el ensamblaje estructural y gestión de montaje de battery packs.</li>
-                                        <li data-translate="exp1-b3"><span>Gestión técnica:</span> Redacción de documentación técnica, certificados, datasheets y perfiles de prueba de celdas.</li>
+                                        <li data-translate="exp1-b1"><span>Diseño de PCBs:</span> Creación de circuitos electrónicos y placas de circuito impreso (PCBs) multicapa optimizadas para la gestión y balanceo de celdas utilizando <strong>Altium Designer</strong> y <strong>Proteus</strong>.</li>
+                                        <li data-translate="exp1-b2"><span>Estructura &amp; Montaje:</span> Modelado 3D de carcasas y soportes estructurales de baterías para garantizar la disipación térmica y protección mecánica ante vibraciones.</li>
+                                        <li data-translate="exp1-b3"><span>Gestión técnica:</span> Redacción de documentación de diseño técnico, especificaciones funcionales y planes de prueba de laboratorios para celdas electroquímicas.</li>
                                     </ul>
                                 </div>
                                 <button class="btn-toggle-details btn-secondary" data-target="details-exp1" data-translate="btn-more">Ver detalles</button>
+                            </div>
+                        </div>
+
+                        <!-- Ironwelding Fabrication -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div>
+                                        <span class="timeline-company" data-translate="exp1b-comp">Ironwelding Barcelona</span>
+                                        <h4 class="timeline-title" data-translate="exp1b-title">Técnico de Fabricación e Integración de Baterías</h4>
+                                    </div>
+                                    <span class="timeline-date" data-translate="exp1b-date">Nov 2024 - Actualidad</span>
+                                </div>
+                                <p class="timeline-desc" data-translate="exp1b-desc">Ensamblaje mecánico, soldadura por puntos de celdas de alta capacidad, cableado de potencia/señal y ensayos de validación eléctrica y seguridad térmica de battery packs.</p>
+                                <div class="timeline-details collapsed" id="details-exp1b">
+                                    <ul class="timeline-bullets">
+                                        <li data-translate="exp1b-b1"><span>Interconexión de celdas:</span> Soldadura de alta precisión de pletinas de níquel para la interconexión de celdas LiFePO4 de alta capacidad y montaje de mazos de cables.</li>
+                                        <li data-translate="exp1b-b2"><span>Integración BMS:</span> Programación e integración física de sistemas BMS comerciales y sensores analógicos de temperatura y voltaje en el chasis.</li>
+                                        <li data-translate="exp1b-b3"><span>Ensayos y calidad:</span> Ensayos de ciclado, caracterización de celdas de litio, diagnóstico de fallos térmicos/eléctricos y control de calidad final de producción.</li>
+                                    </ul>
+                                </div>
+                                <button class="btn-toggle-details btn-secondary" data-target="details-exp1b" data-translate="btn-more">Ver detalles</button>
                             </div>
                         </div>
 
@@ -526,13 +549,14 @@
         </div>
     </section>
 
-    <!-- PCB Stackup & Impedance Calculator Section (Módulo Didáctico) -->
     <section id="pcb-tool" class="section-gold-border">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" data-translate="tool-title">Estimador de impedancia microstrip</h2>
-                <p class="section-subtitle tool-subtitle" data-translate="tool-subtitle">Una herramienta didáctica para estimar la impedancia de una línea de transmisión tipo microstrip sobre un plano de referencia continuo.</p>
+            <div class="section-header" style="margin-bottom: 40px;">
+                <h2 class="section-title" data-translate="nav-pcb">Herramientas</h2>
+                <p class="section-subtitle tool-subtitle" data-translate="pcb-section-desc">Herramientas y estimadores interactivos de ingeniería para desarrollo de hardware.</p>
             </div>
+            
+            <h3 class="tool-sub-title" data-translate="tool-title" style="text-align: center; margin-bottom: 30px; font-size: 1.5rem; color: var(--accent-blue); font-family: var(--font-outfit); font-weight: 700;">Estimador de impedancia microstrip</h3>
             
             <div class="pcb-calculator-card glass-card">
                 <div class="pcb-tool-grid">
