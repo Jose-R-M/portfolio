@@ -1333,8 +1333,30 @@ footer {
     }
     
     .hero-content {
-        align-items: flex-start;
-        text-align: left;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .hero-title {
+        text-align: center !important;
+    }
+    
+    .hero-circuit-line {
+        margin: 16px auto 24px auto !important;
+    }
+    
+    .hero-subtitles {
+        align-items: center !important;
+        text-align: center !important;
+    }
+    
+    .hero-desc {
+        text-align: center !important;
+    }
+    
+    .social-links {
+        justify-content: center !important;
+        width: 100%;
     }
     
     .hero-visual {
@@ -1986,6 +2008,11 @@ footer {
     
     .calc-buttons-container, .stackup-controls {
         flex-wrap: wrap !important;
+    }
+    
+    .contact-info-title {
+        font-size: 1.45rem !important;
+        white-space: nowrap !important;
     }
 }
 

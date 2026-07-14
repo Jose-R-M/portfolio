@@ -1149,7 +1149,7 @@ Impedancia característica (Z0): ${zDisplay}`;
             "tool-edu-formula": "<strong>Grosor de cobre fijo:</strong> 35 µm (1 oz). Altura dieléctrica (h) y permitividad relativa (εr) del sustrato.",
             "tool-edu-valid": "<strong>Cálculo:</strong> Basado en el modelo analítico empírico para líneas de transmisión microstrip single-ended (no diferencial).",
             "tool-edu-disclaimer": "\"Los resultados son estimaciones orientativas. El diseño final debe validarse con el fabricante de PCB o mediante una herramienta de simulación electromagnética.\"",
-            "footer-text": "© 2026 Jose Rodríguez Melero. Portfolio profesional."
+            "footer-text": "© 2026 Jose Rodríguez Melero. <span style='display: inline-block;'>Portfolio profesional.</span>"
         },
         ca: {
             "nav-inicio": "Inici",
@@ -1299,7 +1299,7 @@ Impedancia característica (Z0): ${zDisplay}`;
             "tool-edu-formula": "<strong>Gruix de coure fix:</strong> 35 µm (1 oz). Alçada dielèctrica (h) i permitivitat relativa (εr) del sustrat.",
             "tool-edu-valid": "<strong>Càlcul:</strong> Basat en el model analític empíric per a línies de transmissió microstrip single-ended (no diferencial).",
             "tool-edu-disclaimer": "\"Els resultats són estimacions orientatives. El disseny final s'ha de validar amb el fabricant de PCB o mitjançant una eina de simulació electromagnètica.\"",
-            "footer-text": "© 2026 Jose Rodríguez Melero. Portfoli professional."
+            "footer-text": "© 2026 Jose Rodríguez Melero. <span style='display: inline-block;'>Portfoli professional.</span>"
         },
         en: {
             "nav-inicio": "Home",
@@ -1445,7 +1445,7 @@ Impedancia característica (Z0): ${zDisplay}`;
             "tool-edu-formula": "<strong>Fixed copper thickness:</strong> 35 µm (1 oz). Dielectric height (h) and relative permittivity (εr) of the substrate.",
             "tool-edu-valid": "<strong>Calculation:</strong> Based on the empirical analytical model for single-ended microstrip transmission lines (not differential).",
             "tool-edu-disclaimer": "\"Results are guidelines only. The final design must be verified with the PCB manufacturer or using an electromagnetic simulation tool.\"",
-            "footer-text": "© 2026 Jose Rodríguez Melero. Professional portfolio."
+            "footer-text": "© 2026 Jose Rodríguez Melero. <span style='display: inline-block;'>Professional portfolio.</span>"
         }
     };
 
